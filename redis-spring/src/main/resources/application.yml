@@ -1,0 +1,23 @@
+
+spring:
+  application:
+    name: redis-spring
+
+city:
+  service:
+    url: http://localhost:3030/open-city-api/
+
+redis:
+  caches:
+    math-fib:
+      cache-name: "math:fib"
+      ttl: 10000 # milliseconds
+    other-cache:
+      cache-name: "other:key"
+      ttl: 120000
+    weather:
+        cache-name: "weather:city"
+        ttl: 300000
+    weather-reactive:
+        cache-name: "weather:city-reactive"
+        ttl: 300000
