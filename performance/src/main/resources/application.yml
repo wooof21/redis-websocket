@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: performance
+  r2dbc:
+    url: r2dbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${DB_NAME:postgres}
+    username: ${POSTGRES_USER:admin}
+    password: ${POSTGRES_PASSWORD:admin}
+    pool:
+      enabled: true
+      initial-size: 5
+      max-size: 20
+      max-idle-time: 30m
+  sql:
+    init:
+      mode: always # run schema.sql/data.sql at startup (optional)
+
+logging:
+  level:
+    io.lettuce.core: INFO
+    org.redisson: INFO
+    org.springframework.data.redis: INFO

@@ -1,4 +1,4 @@
-package com.spring.common.aop;
+package com.example.aop;
 
 
 import java.lang.annotation.ElementType;

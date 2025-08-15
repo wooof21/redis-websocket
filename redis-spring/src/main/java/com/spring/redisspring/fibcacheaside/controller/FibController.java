@@ -1,6 +1,6 @@
 package com.spring.redisspring.fibcacheaside.controller;
 
-import com.spring.common.aop.Timing;
+import com.example.aop.Timing;
 import com.spring.redisspring.fibcacheaside.service.FibService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

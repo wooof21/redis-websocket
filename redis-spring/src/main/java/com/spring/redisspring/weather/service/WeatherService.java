@@ -1,14 +1,14 @@
 package com.spring.redisspring.weather.service;
 
-import com.spring.common.aop.Timing;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.stream.IntStream;
 
 @Service
+@Slf4j
 public class WeatherService {
 
     @Autowired
@@ -32,7 +32,7 @@ public class WeatherService {
     // and store it in the cache.
     // @Scheduled(fixedRate = 20_000)
     public void updateWeather(){
-        System.out.println("Updating weather.");
+        log.info("Updating weather.");
         IntStream.rangeClosed(1, 5)
                 .forEach(this.client::getWeatherInfo);
     }
