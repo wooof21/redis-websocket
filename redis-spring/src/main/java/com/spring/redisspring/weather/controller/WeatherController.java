@@ -1,6 +1,6 @@
 package com.spring.redisspring.weather.controller;
 
-import com.spring.common.aop.Timing;
+import com.example.aop.Timing;
 import com.spring.redisspring.weather.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

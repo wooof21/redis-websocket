@@ -13,15 +13,19 @@ java {
 	}
 }
 
+repositories {
+	mavenCentral()
+}
+
+
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
 }
 
-repositories {
-	mavenCentral()
-}
+
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'

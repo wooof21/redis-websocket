@@ -2,3 +2,5 @@ rootProject.name = 'redis-websocket'
 
 include 'redisson'
 include 'redis-spring'
+include 'performance'
+include 'common'

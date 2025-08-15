@@ -1,6 +1,6 @@
 package com.spring.redisspring.city.controller;
 
-import com.spring.common.aop.Timing;
+import com.example.aop.Timing;
 import com.spring.redisspring.city.model.City;
 import com.spring.redisspring.city.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;

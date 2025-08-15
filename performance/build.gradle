@@ -4,7 +4,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
-group = 'com.spring'
+group = 'com.performance'
 version = '0.0.1-SNAPSHOT'
 
 java {
@@ -25,28 +25,23 @@ repositories {
 
 dependencies {
     implementation(project(":common"))
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-//    implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'org.postgresql:postgresql'
+    runtimeOnly 'org.postgresql:r2dbc-postgresql'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    implementation  'org.redisson:redisson-spring-boot-starter:3.50.0'
 
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop
-    implementation 'org.springframework.boot:spring-boot-starter-aop:3.5.4'
+    implementation  'org.redisson:redisson-spring-boot-starter:3.50.0'
 
     // https://mvnrepository.com/artifact/org.redisson/redisson
     implementation 'org.redisson:redisson:3.50.0'
-
-    // https://mvnrepository.com/artifact/org.aspectj/aspectjrt
-//    runtimeOnly 'org.aspectj:aspectjrt:1.9.24'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
-

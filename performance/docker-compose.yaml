@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      - DB_NAME=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_HOST=localhost
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5432:5432"
+# pgadmin: managing Postgres via a web UI.
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "9000:80"
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--maxmemory", "1gb", "--maxmemory-policy", "allkeys-lru", "--maxclients", "10000"]
