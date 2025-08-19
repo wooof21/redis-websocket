@@ -1,7 +1,7 @@
 package com.performance.service;
 
 import com.performance.model.Product;
-import com.performance.util.CacheTemplate;
+import com.example.templates.CacheTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;

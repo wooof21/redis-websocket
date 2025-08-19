@@ -1,5 +1,6 @@
 package com.performance.util;
 
+import com.example.templates.CacheTemplate;
 import com.performance.model.Product;
 import com.performance.repository.ProductRepository;
 import org.redisson.api.RMapReactive;
@@ -7,8 +8,6 @@ import org.redisson.api.RedissonReactiveClient;
 import org.redisson.codec.TypedJsonJacksonCodec;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
-
-import java.time.Duration;
 
 @Service
 public class ProductCacheTemplate extends CacheTemplate<Integer, Product> {
@@ -22,6 +21,16 @@ public class ProductCacheTemplate extends CacheTemplate<Integer, Product> {
         this.repository = repository;
         this.mapCache = client.getMap("product",
                 new TypedJsonJacksonCodec(Integer.class, Product.class));
+    }
+
+    @Override
+    protected Mono<Product> insertSource(Product product) {
+        return Mono.empty();
+    }
+
+    @Override
+    protected Mono<Product> insertCache(Product product) {
+        return Mono.empty();
     }
 
     @Override

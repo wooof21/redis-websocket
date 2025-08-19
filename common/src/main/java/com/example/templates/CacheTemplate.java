@@ -1,11 +1,14 @@
-package com.performance.util;
+package com.example.templates;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import reactor.core.publisher.Mono;
 
 /**
  * Template Design Pattern for Cache Operations
  */
 public abstract class CacheTemplate<KEY, ENTITY> {
+
+
 
     /**
      * Retrieves an entity by its key, first checking the cache,
@@ -17,6 +20,11 @@ public abstract class CacheTemplate<KEY, ENTITY> {
                             getFromSource(key)
                                 .flatMap(e -> updateCache(key, e))
                     );
+    }
+
+    public Mono<ENTITY> insert(ENTITY entity){
+        return insertSource(entity)
+                    .flatMap(this::insertCache);
     }
 
     /**
@@ -47,6 +55,8 @@ public abstract class CacheTemplate<KEY, ENTITY> {
      * Abstract methods to be implemented by subclasses
      * for specific cache and source operations.
      */
+    abstract protected Mono<ENTITY> insertSource(ENTITY entity);
+    abstract protected Mono<ENTITY> insertCache(ENTITY entity);
     abstract protected Mono<ENTITY> getFromSource(KEY key);
     abstract protected Mono<ENTITY> getFromCache(KEY key);
     abstract protected Mono<ENTITY> updateSource(KEY key, ENTITY entity);

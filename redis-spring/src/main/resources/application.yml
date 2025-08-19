@@ -2,6 +2,18 @@
 spring:
   application:
     name: redis-spring
+  r2dbc:
+    url: r2dbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${DB_NAME:postgres}
+    username: ${POSTGRES_USER:admin}
+    password: ${POSTGRES_PASSWORD:admin}
+    pool:
+      enabled: true
+      initial-size: 5
+      max-size: 20
+      max-idle-time: 30m
+  sql:
+    init:
+      mode: always # run schema.sql/data.sql at startup (optional)
 
 city:
   service:
@@ -21,3 +33,11 @@ redis:
     weather-reactive:
         cache-name: "weather:city-reactive"
         ttl: 300000
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.web.reactive.socket: DEBUG
+    com.spring.websocketchat: DEBUG

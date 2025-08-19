@@ -20,3 +20,30 @@ Sample Response:
     "density": 15153.7,
     "temperature": 99
 }
+
+
+------------------------------------
+WebSocket Chat: 
+
+WebSocket Test Client: Chrome Extension "WebSocket Test Client"
+
+ws://localhost:8080/chat?room=room1&user=john
+
+Send Chat:
+
+{
+"type": "CHAT_MESSAGE",
+"room": "room1",
+"user": "john",
+"message": "12"
+}
+
+
+Load History:
+
+{
+"type": "LOAD_HISTORY",
+"room": "room1",
+"page": "1",
+"size": "10"
+}
