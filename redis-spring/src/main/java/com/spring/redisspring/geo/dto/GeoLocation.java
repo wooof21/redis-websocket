@@ -1,6 +1,9 @@
-package com.example.model;
+package com.spring.redisspring.geo.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor

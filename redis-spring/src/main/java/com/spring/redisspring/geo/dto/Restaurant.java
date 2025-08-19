@@ -1,4 +1,4 @@
-package com.example.model;
+package com.spring.redisspring.geo.dto;
 
 import lombok.*;
 

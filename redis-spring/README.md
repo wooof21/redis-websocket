@@ -47,3 +47,8 @@ Load History:
 "page": "1",
 "size": "10"
 }
+
+--------------------------------
+Geo:
+
+API: http://localhost:8080/geo/75224?radius=5&unit=MILES

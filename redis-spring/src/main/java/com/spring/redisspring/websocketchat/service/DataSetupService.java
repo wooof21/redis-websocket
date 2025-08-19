@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
  * but before the app is ready to serve requests.
  * It reads a SQL schema file and inserts 1000 products into the database.
  */
-@Service
+@Service("chatSqlDataSetupService")
 @Slf4j
 public class DataSetupService implements CommandLineRunner {
 
